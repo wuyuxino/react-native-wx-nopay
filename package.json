@@ -1,7 +1,7 @@
 
 {
   "name": "react-native-wx-nopay",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "微信登陆分享模块，纯净版",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,10 @@
     "wxnopay",
     "wx"
   ],
+  "dependencies": {
+    "es6-promisify": "^3.0.0",
+    "event": "^3.0.0"
+  },
   "author": "wuyx",
   "license": "ISC",
   "peerDependencies": {
