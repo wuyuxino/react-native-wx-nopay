@@ -1,0 +1,24 @@
+
+{
+  "name": "react-native-wx-nopay",
+  "version": "1.0.0",
+  "description": "微信登陆分享模块，纯净版，不包含支付",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuyuxino/react-native-wx-nopay"
+  },
+  "keywords": [
+    "react-native",
+    "wxnopay",
+    "wx"
+  ],
+  "author": "wuyx",
+  "license": "ISC",
+  "peerDependencies": {
+    "react-native": "^0.41.2"
+  }
+}
