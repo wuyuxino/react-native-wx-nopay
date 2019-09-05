@@ -1,8 +1,8 @@
 
 {
   "name": "react-native-wx-nopay",
-  "version": "1.0.0",
-  "description": "微信登陆分享模块，纯净版，不包含支付",
+  "version": "1.0.1",
+  "description": "微信登陆分享模块，纯净版",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

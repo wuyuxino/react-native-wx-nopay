@@ -65,8 +65,8 @@ function wrapCheckApi(nativeFunc) {
   };
 }
 
-export const isWXAppInstalled = wrapCheckApi(WeChatAPI.isWXAppInstalled);
-export const isWXAppSupportApi = wrapCheckApi(WeChatAPI.isWXAppSupportApi);
+export const isWXAppInstalled = wrapCheckApi(RNWxNopay.isWXAppInstalled);
+export const isWXAppSupportApi = wrapCheckApi(RNWxNopay.isWXAppSupportApi);
 
 function wrapApi(nativeFunc) {
   if (!nativeFunc) {
@@ -75,7 +75,7 @@ function wrapApi(nativeFunc) {
 
   const promisified = promisify(nativeFunc, translateError);
   return async function (...args) {
-    if (!WeChatAPI.isAppRegistered) {
+    if (!RNWxNopay.isAppRegistered) {
       throw new Error('注册应用失败');
     }
     const checkInstalled = await isWXAppInstalled();
@@ -90,9 +90,9 @@ function wrapApi(nativeFunc) {
   };
 }
 
-const nativeSendAuthRequest = wrapApi(WeChatAPI.login);
-const nativeShareToTimelineRequest = wrapApi(WeChatAPI.shareToTimeline);
-const nativeShareToSessionRequest = wrapApi(WeChatAPI.shareToSession);
+const nativeSendAuthRequest = wrapApi(RNWxNopay.login);
+const nativeShareToTimelineRequest = wrapApi(RNWxNopay.shareToTimeline);
+const nativeShareToSessionRequest = wrapApi(RNWxNopay.shareToSession);
 
 export function login(config) {
   const scope = (config && config.scope) || 'snsapi_userinfo';
@@ -112,7 +112,7 @@ export function shareToSession(data) {
 
 export function sendAuthRequest(scopes, state) {
   return new Promise((resolve, reject) => {
-    WeChatAPI.sendAuthRequest(scopes, state, () => {});
+    RNWxNopay.sendAuthRequest(scopes, state, () => {});
     emitter.once('SendAuth.Resp', resp => {
       if (resp.errCode === 0) {
         resolve(resp);
